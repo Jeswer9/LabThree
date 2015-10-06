@@ -5,3 +5,8 @@ C:\Users\ian\Documents\Gametech docs\MSO\mso-lab3-master\obj\x86\Debug\Lab3.exe
 C:\Users\ian\Documents\Gametech docs\MSO\mso-lab3-master\obj\x86\Debug\Lab3.pdb
 C:\Users\ian\Desktop\Gametech docs\MSO\mso-lab3-master\obj\x86\Debug\Lab3.exe
 C:\Users\ian\Desktop\Gametech docs\MSO\mso-lab3-master\obj\x86\Debug\Lab3.pdb
+C:\Users\ian\Documents\GitHub\LabThree\mso-lab3-master\obj\x86\Debug\Lab3.exe
+C:\Users\ian\Documents\GitHub\LabThree\mso-lab3-master\obj\x86\Debug\Lab3.pdb
+C:\Users\ian\Documents\GitHub\LabThree\mso-lab3-master\bin\Debug\Lab3.exe
+C:\Users\ian\Documents\GitHub\LabThree\mso-lab3-master\bin\Debug\Lab3.pdb
+C:\Users\ian\Documents\GitHub\LabThree\mso-lab3-master\obj\x86\Debug\Lab3.csprojResolveAssemblyReference.cache

@@ -85,5 +85,42 @@ namespace Lab3
 			MessageBox.Show("Cancel transaction 1");
 		}
 	}
+
+    // Mock Chipknip implementation
+    public class Chipknip : ICard
+    {
+        public void Connect()
+        {
+            MessageBox.Show("Connecting to chipknip reader");
+        }
+
+        public void Disconnect()
+        {
+            MessageBox.Show("Disconnecting from chipknip reader");
+        }
+
+        public int BeginTransaction(float amount)
+        {
+            MessageBox.Show("Begin transaction 1 of " + amount + " EUR");
+            return 1;
+        }
+
+        public bool EndTransaction(int id)
+        {
+            if (id != 1)
+                return false;
+
+            MessageBox.Show("End transaction 1");
+            return true;
+        }
+
+        public void CancelTransaction(int id)
+        {
+            if (id != 1)
+                throw new Exception("Incorrect transaction id");
+
+            MessageBox.Show("Cancel transaction 1");
+        }
+    }
 }
 

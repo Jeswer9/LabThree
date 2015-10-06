@@ -77,7 +77,13 @@ namespace Lab3
 				int dcid = d.BeginTransaction (price);
 				d.EndTransaction (dcid);
 				break;
-			case UIPayment.Cash:
+            case UIPayment.Chipknip:
+                    DebitCard e = new DebitCard();
+                    e.Connect();
+                    int ecid = e.BeginTransaction(price);
+                    e.EndTransaction(ecid);
+                    break;
+                case UIPayment.Cash:
 				IKEAMyntAtare2000 coin = new IKEAMyntAtare2000 ();
 				coin.starta ();
 				coin.betala ((int) Math.Round(price * 100));

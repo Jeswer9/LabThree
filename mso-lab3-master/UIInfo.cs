@@ -25,7 +25,8 @@ namespace Lab3
 	{
 		DebitCard,
 		CreditCard,
-		Cash
+        Chipknip,
+        Cash
 	}
 
 	public struct UIInfo
