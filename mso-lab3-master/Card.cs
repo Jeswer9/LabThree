@@ -12,26 +12,34 @@ namespace Lab3
 		void CancelTransaction(int id);
 	}
 
+    public abstract class Card : PaymentMethod , ICard
+     {
+        public abstract void Connect();
+        public abstract void Disconnect();
+        public abstract int BeginTransaction(float amount);
+        public abstract bool EndTransaction(int id);
+        public abstract void CancelTransaction(int id);
+    }
 	// Mock CreditCard implementation
-	public class CreditCard : ICard
+	public class CreditCard : Card
 	{
-		public void Connect ()
+		public override void Connect ()
 		{
 			MessageBox.Show ("Connecting to credit card reader");
 		}
 
-		public void Disconnect ()
+        public override void Disconnect()
 		{
 			MessageBox.Show ("Disconnecting from credit card reader");
 		}
 
-		public int BeginTransaction (float amount)
+        public override int BeginTransaction(float amount)
 		{
 			MessageBox.Show ("Begin transaction 1 of " + amount + " EUR");
 			return 1;
 		}
 
-		public bool EndTransaction (int id)
+        public override bool EndTransaction(int id)
 		{
 			if (id != 1)
 				return false;
@@ -40,7 +48,7 @@ namespace Lab3
 			return true;
 		}
 
-		public void CancelTransaction (int id)
+        public override void CancelTransaction(int id)
 		{
 			if (id != 1)
 				throw new Exception ("Incorrect transaction id");
@@ -50,25 +58,25 @@ namespace Lab3
 	}
 
 	// Mock CreditCard implementation
-	public class DebitCard : ICard
+	public class DebitCard : Card
 	{
-		public void Connect ()
+        public override void Connect()
 		{
 			MessageBox.Show ("Connecting to debit card reader");
 		}
 
-		public void Disconnect ()
+        public override void Disconnect()
 		{
 			MessageBox.Show ("Disconnecting from debit card reader");
 		}
 
-		public int BeginTransaction (float amount)
+        public override int BeginTransaction(float amount)
 		{
 			MessageBox.Show ("Begin transaction 1 of " + amount + " EUR");
 			return 1;
 		}
 
-		public bool EndTransaction (int id)
+        public override bool EndTransaction(int id)
 		{
 			if (id != 1)
 				return false;
@@ -77,7 +85,7 @@ namespace Lab3
 			return true;
 		}
 
-		public void CancelTransaction (int id)
+        public override void CancelTransaction(int id)
 		{
 			if (id != 1)
 				throw new Exception ("Incorrect transaction id");
@@ -87,25 +95,25 @@ namespace Lab3
 	}
 
     // Mock Chipknip implementation
-    public class Chipknip : ICard
+    public class Chipknip : Card
     {
-        public void Connect()
+        public override void Connect()
         {
             MessageBox.Show("Connecting to chipknip reader");
         }
 
-        public void Disconnect()
+        public override void Disconnect()
         {
             MessageBox.Show("Disconnecting from chipknip reader");
         }
 
-        public int BeginTransaction(float amount)
+        public override int BeginTransaction(float amount)
         {
             MessageBox.Show("Begin transaction 1 of " + amount + " EUR");
             return 1;
         }
 
-        public bool EndTransaction(int id)
+        public override bool EndTransaction(int id)
         {
             if (id != 1)
                 return false;
@@ -114,7 +122,7 @@ namespace Lab3
             return true;
         }
 
-        public void CancelTransaction(int id)
+        public override void CancelTransaction(int id)
         {
             if (id != 1)
                 throw new Exception("Incorrect transaction id");
