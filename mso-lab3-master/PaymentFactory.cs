@@ -26,6 +26,10 @@ namespace Lab3
                     payment = new Chipknip();
                     payment.HandlePayment(price);
                     break;
+                case UIPayment.Cash:
+                    payment = new Cash();
+                    payment.HandlePayment(price);
+                    break;
 
             }
         }
