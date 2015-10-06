@@ -16,22 +16,18 @@ namespace Lab3
             {
                 case UIPayment.CreditCard:
                     payment = new CreditCard();
-                    payment.HandlePayment(price);
                     break;
                 case UIPayment.DebitCard:
                     payment = new DebitCard();
-                    payment.HandlePayment(price);
                     break;
                 case UIPayment.Chipknip:
                     payment = new Chipknip();
-                    payment.HandlePayment(price);
                     break;
                 case UIPayment.Cash:
-                    payment = new Cash();
-                    payment.HandlePayment(price);
+                    payment = new Cash();                    
                     break;
-
             }
+            payment.HandlePayment(price);
         }
     }
 }
