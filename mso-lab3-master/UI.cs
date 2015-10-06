@@ -63,33 +63,13 @@ namespace Lab3
 				price += 0.50f;
 			}
 
+          
 			// Pay
-			switch (info.Payment) {
-			case UIPayment.CreditCard:
-				CreditCard c = new CreditCard ();
-				c.Connect ();
-				int ccid = c.BeginTransaction (price);
-				c.EndTransaction (ccid);
-				break;
-			case UIPayment.DebitCard:
-				DebitCard d = new DebitCard ();
-				d.Connect ();
-				int dcid = d.BeginTransaction (price);
-				d.EndTransaction (dcid);
-				break;
-            case UIPayment.Chipknip:
-                    DebitCard e = new DebitCard();
-                    e.Connect();
-                    int ecid = e.BeginTransaction(price);
-                    e.EndTransaction(ecid);
-                    break;
-                case UIPayment.Cash:
-				IKEAMyntAtare2000 coin = new IKEAMyntAtare2000 ();
-				coin.starta ();
-				coin.betala ((int) Math.Round(price * 100));
-				coin.stoppa ();
-				break;
-			}
+			PaymentFactory pFactory = new PaymentFactory();
+                    
+		    pFactory.selectPaymentMethod(info.Payment, price);
+           
+			
 		}
 
 #region Set-up -- don't look at it
