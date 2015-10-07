@@ -9,7 +9,7 @@ namespace Lab3
     {
         Payment payment;
 
-        public void MakePayment(UIPayment uiPayment, float price)
+        public bool MakePayment(UIPayment uiPayment, float price)
         {
 
             switch (uiPayment)
@@ -28,7 +28,7 @@ namespace Lab3
                     break;
             }
 
-            payment.HandlePayment(price);
+            return payment.HandlePayment(price);
         }
     }
 }

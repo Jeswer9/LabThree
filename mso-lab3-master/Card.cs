@@ -19,20 +19,28 @@ namespace Lab3
         public abstract int BeginTransaction(float amount);
         public abstract bool EndTransaction(int id);
         public abstract void CancelTransaction(int id);
-        public override void HandlePayment(float price)
+        public override bool HandlePayment(float price)
         {
-
+            return true;
+        }
+        public bool isSuccessful(int id)
+        {
+            if (!EndTransaction(id))
+            {
+                return false;
+            }
+            return true;
         }
     }
+
 	// Mock CreditCard implementation
 	public class CreditCard : Card
 	{
-        public override void HandlePayment(float amount)
+        public override bool HandlePayment(float amount)
         {
             Connect();
             int id = BeginTransaction(amount);
-            EndTransaction(id);
-
+            return isSuccessful(id);
         }
 
 		public override void Connect ()
@@ -48,7 +56,7 @@ namespace Lab3
         public override int BeginTransaction(float amount)
 		{
 			MessageBox.Show ("Begin transaction 1 of " + amount + " EUR");
-			return 1;
+			return 2;
 		}
 
         public override bool EndTransaction(int id)
@@ -73,12 +81,11 @@ namespace Lab3
     // Mock CreditCard implementation
     public class DebitCard : Card
     {
-        public override void HandlePayment(float amount)
+        public override bool HandlePayment(float amount)
         {
             Connect();
             int id = BeginTransaction(amount);
-            EndTransaction(id);
-
+            return isSuccessful(id);
         }
 
         public override void Connect()
@@ -118,12 +125,12 @@ namespace Lab3
      //Mock Chipknip implementation
     public class Chipknip : Card
     {
-        public override void HandlePayment(float amount)
+        
+        public override bool HandlePayment(float amount)
         {
             Connect();
             int id = BeginTransaction(amount);
-            EndTransaction(id);
-
+            return isSuccessful(id);
         }
 
         public override void Connect()

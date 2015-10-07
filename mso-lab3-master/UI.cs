@@ -27,9 +27,20 @@ namespace Lab3
 		{                      
 			// Pay
 			PaymentFactory pFactory = new PaymentFactory();                   
-		    pFactory.MakePayment(info.Payment, info.Price);
+		    bool success = pFactory.MakePayment(info.Payment, info.Price);
+
+            //Print Ticket
+            PrintTicket(success);
 		}
 
+        private void PrintTicket(bool success)
+        {
+            if (success)
+            {
+                MessageBox.Show("Ticket is printed");
+            }
+        }
+        
       
 
 #region Set-up -- don't look at it
