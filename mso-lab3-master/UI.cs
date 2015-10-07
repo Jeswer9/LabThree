@@ -27,7 +27,7 @@ namespace Lab3
 		{                      
 			// Pay
 			PaymentFactory pFactory = new PaymentFactory();                   
-		    pFactory.selectPaymentMethod(info.Payment, info.Price);
+		    pFactory.MakePayment(info.Payment, info.Price);
 		}
 
       
@@ -146,7 +146,7 @@ namespace Lab3
 			grid.Controls.Add (paymentLabel, 0, 2);
 			payment = new ComboBox ();
 			payment.DropDownStyle = ComboBoxStyle.DropDownList;
-			payment.Items.AddRange (new String[] { "Credit card", "Debit card", "Cash" });
+			payment.Items.AddRange (new String[] { "Credit card", "Debit card", "Cash" ,"Chip Knip"});
 			payment.SelectedIndex = 0;
 			payment.Dock = DockStyle.Fill;
 			grid.Controls.Add (payment, 1, 2);
@@ -190,6 +190,9 @@ namespace Lab3
 				break;
 			case "Debit card":
 				pment = UIPayment.DebitCard;
+				break;
+           case "Chip Knip":
+                pment = UIPayment.Chipknip;
 				break;
 			default:
 				pment = UIPayment.Cash;

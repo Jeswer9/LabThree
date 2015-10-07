@@ -7,9 +7,9 @@ namespace Lab3
 {
     class PaymentFactory
     {
-        PaymentMethod payment;
+        Payment payment;
 
-        public void selectPaymentMethod(UIPayment uiPayment, float price)
+        public void MakePayment(UIPayment uiPayment, float price)
         {
 
             switch (uiPayment)
@@ -27,6 +27,7 @@ namespace Lab3
                     payment = new Cash();                    
                     break;
             }
+
             payment.HandlePayment(price);
         }
     }

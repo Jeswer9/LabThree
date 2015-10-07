@@ -12,7 +12,7 @@ namespace Lab3
 		void CancelTransaction(int id);
 	}
 
-    public abstract class Card : PaymentMethod , ICard
+    public abstract class Card : Payment, ICard
      {
         public abstract void Connect();
         public abstract void Disconnect();

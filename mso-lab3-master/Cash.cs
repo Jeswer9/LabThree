@@ -2,7 +2,7 @@
 
 namespace Lab3
 {
-    class Cash : PaymentMethod
+    class Cash : Payment
     {
         public override void HandlePayment(float price)
         {
