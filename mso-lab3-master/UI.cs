@@ -23,13 +23,13 @@ namespace Lab3
 			initializeControls ();
 		}
 
-		private void initializePayment(UIInfo info)
+		private void HandlePayment(UIInfo info)
 		{                      
 			// Pay
 			PaymentFactory pFactory = new PaymentFactory();                   
 		    bool success = pFactory.MakePayment(info.Payment, info.Price);
 
-            //Print Ticket
+            // Print Ticket
             PrintTicket(success);
 		}
 
@@ -37,7 +37,7 @@ namespace Lab3
         {
             if (success)
             {
-                MessageBox.Show("Ticket is printed");
+                MessageBox.Show("Ticket is printed...");
             }
         }
         
@@ -169,7 +169,7 @@ namespace Lab3
 			grid.Controls.Add (pay, 0, 3);
 			grid.SetColumnSpan (pay, 6);
 			// Set up event
-            pay.Click += (object sender, EventArgs e) => initializePayment(getUIInfo());
+            pay.Click += (object sender, EventArgs e) => HandlePayment(getUIInfo());
 		}
 
 		private UIInfo getUIInfo()

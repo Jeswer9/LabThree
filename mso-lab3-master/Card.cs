@@ -56,7 +56,7 @@ namespace Lab3
         public override int BeginTransaction(float amount)
 		{
 			MessageBox.Show ("Begin transaction 1 of " + amount + " EUR");
-			return 2;
+			return 1;
 		}
 
         public override bool EndTransaction(int id)
