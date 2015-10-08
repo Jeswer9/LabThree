@@ -38,6 +38,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cash.cs" />
+    <Compile Include="ClassFactory.cs" />
+    <Compile Include="Class.cs" />
+    <Compile Include="Discount.cs" />
+    <Compile Include="DiscountFactory.cs" />
     <Compile Include="PaymentFactory.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Program.cs" />

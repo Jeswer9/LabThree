@@ -14,6 +14,7 @@ namespace Lab3
 
     public abstract class Card : Payment, ICard
      {
+        
         public abstract void Connect();
         public abstract void Disconnect();
         public abstract int BeginTransaction(float amount);
@@ -23,6 +24,7 @@ namespace Lab3
         {
             return true;
         }
+
         public bool isSuccessful(int id)
         {
             if (!EndTransaction(id))
@@ -31,16 +33,19 @@ namespace Lab3
             }
             return true;
         }
+
        
     }
 
 	// Mock CreditCard implementation
 	public class CreditCard : Card
 	{
+        public float additionalCharge = 0.50f;
+
         public override bool HandlePayment(float amount)
         {
             Connect();
-            int id = BeginTransaction(amount);
+            int id = BeginTransaction(amount+additionalCharge);
             return isSuccessful(id);
         }
 
@@ -82,10 +87,12 @@ namespace Lab3
     // Mock CreditCard implementation
     public class DebitCard : Card
     {
+        public float additionalCharge = 0f;
+
         public override bool HandlePayment(float amount)
         {
             Connect();
-            int id = BeginTransaction(amount);
+            int id = BeginTransaction(amount+additionalCharge);
             return isSuccessful(id);
         }
 
@@ -126,11 +133,12 @@ namespace Lab3
      //Mock Chipknip implementation
     public class Chipknip : Card
     {
-        
+        public float additionalCharge = 0f;
+
         public override bool HandlePayment(float amount)
         {
             Connect();
-            int id = BeginTransaction(amount);
+            int id = BeginTransaction(amount+additionalCharge);
             return isSuccessful(id);
         }
 

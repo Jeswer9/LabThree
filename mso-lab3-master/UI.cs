@@ -33,8 +33,8 @@ namespace Lab3
 		private bool InitializePayment(UIInfo info)
 		{                      
 			// Pay
-			PaymentFactory pFactory = new PaymentFactory();                   
-		    return pFactory.MakePayment(info.Payment, info.Price);
+			PaymentFactory paymentFactor = new PaymentFactory();                   
+		    return paymentFactor.MakePayment(info.Payment, info.Price);
           
 		}
 

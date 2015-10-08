@@ -96,27 +96,15 @@ namespace Lab3
         private int SelectTableColumn()
         {
             // Compute the column in the table based on choices
-            int tableColumn;
+            int tableColumn = 0;
+
             // First based on class
-            switch (Class)
-            {
-                case UIClass.FirstClass:
-                    tableColumn = 3;
-                    break;
-                default:
-                    tableColumn = 0;
-                    break;
-            }
+            ClassFactory classFactory = new ClassFactory();
+            tableColumn = classFactory.HandleSelectedClass(cls, tableColumn);
+
             // Then, on the discount
-            switch (Discount)
-            {
-                case UIDiscount.TwentyDiscount:
-                    tableColumn += 1;
-                    break;
-                case UIDiscount.FortyDiscount:
-                    tableColumn += 2;
-                    break;
-            }
+            DiscountFactory discountFactory = new DiscountFactory();
+            tableColumn = discountFactory.HandleSelectedDiscount(discount, tableColumn);
 
             return tableColumn;
         }
@@ -134,11 +122,6 @@ namespace Lab3
             if (Way == UIWay.Return)
             {
                 price *= 2;
-            }
-            // Add 50 cent if paying with credit card
-            if (Payment == UIPayment.CreditCard)
-            {
-                price += 0.50f;
             }
 
             return price;
