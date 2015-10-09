@@ -40,7 +40,7 @@ namespace Lab3
 	// Mock CreditCard implementation
 	public class CreditCard : Card
 	{
-        public float additionalCharge = 0.50f;
+        private float additionalCharge = 0.50f;
 
         public override bool HandlePayment(float amount)
         {
@@ -87,7 +87,7 @@ namespace Lab3
     // Mock CreditCard implementation
     public class DebitCard : Card
     {
-        public float additionalCharge = 0f;
+        private float additionalCharge = 0f;
 
         public override bool HandlePayment(float amount)
         {
@@ -133,7 +133,7 @@ namespace Lab3
      //Mock Chipknip implementation
     public class Chipknip : Card
     {
-        public float additionalCharge = 0f;
+        private float additionalCharge = 0f;
 
         public override bool HandlePayment(float amount)
         {
