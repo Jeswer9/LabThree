@@ -25,7 +25,7 @@ namespace Lab3
             return true;
         }
 
-        public bool isSuccessful(int id)
+        protected bool isSuccessful(int id)
         {
             if (!EndTransaction(id))
             {
